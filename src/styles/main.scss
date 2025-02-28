@@ -1,4 +1,32 @@
-body {
-    background-color: rgb(0, 0, 0);
-    color: white;
+@use 'variaveis';
+@use 'header';
+@use 'hero';
+@use 'show';
+@use 'available-devices';
+@use 'footer';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: variaveis.$fontPrincipal;
 }
+
+body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: variaveis.$colorTitle;
+    background-color: rgb(0, 0, 0);
+}
+
+// RETIRANDO ESTILOS PADRÕES DAS TAGS DE LISTA
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+// RETIRADO

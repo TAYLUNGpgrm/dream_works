@@ -1,0 +1,114 @@
+@use 'variaveis';
+
+body {
+    padding-top: 60px; // Ajuste conforme altura do header
+}
+
+.header {
+    background: linear-gradient(to top, variaveis.$backgroundColor 10%, variaveis.$colorBottons 100%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: .5s ease;
+
+    :hover {
+        background: linear-gradient(to bottom, variaveis.$backgroundColor 10%, variaveis.$colorBottons 100%);
+    }
+
+    &__container {
+        padding: 8px 36px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        width: 100px;
+        max-width: 100%;
+    }
+
+    &__links {
+        display: flex;
+
+        &__item {
+            .button {
+                margin: 24px;
+                padding: 8px;
+                border: none;
+                border-bottom: 4px solid variaveis.$colorLine;
+                background-color: transparent;
+                border-radius: 20%;
+                width: 12vw;
+                color: variaveis.$colorLine;
+                font-size: 1.3rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: .5s ease;
+
+                &:hover {
+                    letter-spacing: 2px;
+                    color: variaveis.$colorLogo;
+                    border-top: 5px solid variaveis.$backgroundColorTercery;
+                }
+            }
+        }
+    }
+}
+
+// Media Queries para telas menores
+@media screen and (max-width: 480px) {
+    .header {
+        &__container {
+            padding: 8px 16px; // Menos padding lateral
+            flex-direction: column; // Empilha logo e links
+            align-items: center;
+        }
+
+        &__logo {
+            width: 80px; // Logo menor
+        }
+
+        &__links {
+            flex-direction: column; // Links empilhados
+            width: 100%;
+            text-align: center;
+
+            &__item {
+                .button {
+                    margin: 12px 0; // Margem vertical reduzida
+                    padding: 6px;
+                    width: 80%; // Largura relativa maior
+                    font-size: 1rem; // Fonte menor
+                    
+                    &:hover {
+                        letter-spacing: 1px; // Menos espaçamento no hover
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .header {
+        &__container {
+            padding: 8px 24px; // Padding intermediário
+        }
+
+        &__logo {
+            width: 90px; // Tamanho intermediário
+        }
+
+        &__links {
+            flex-wrap: wrap; // Permitir quebra de linha
+            justify-content: center;
+
+            &__item {
+                .button {
+                    margin: 18px 12px; // Margem ajustada
+                    width: 25vw; // Largura proporcional
+                    font-size: 1.2rem; // Fonte intermediária
+                }
+            }
+        }
+    }
+}

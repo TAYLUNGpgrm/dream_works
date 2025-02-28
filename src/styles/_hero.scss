@@ -1,0 +1,118 @@
+@use 'variaveis';
+
+.hero {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: variaveis.$backgroundColorSecundary;
+    background: linear-gradient(to top, variaveis.$backgroundColorSecundary 0%, rgba(0, 0, 0, 0.1) 100%);
+    min-height: 100vh;
+    min-width: 100vw;
+
+    &__tabs {
+        // Removi o --is-active daqui, pois ele deve estar apenas no botão
+        display: flex; // Adicionei para alinhar os botões horizontalmente
+        justify-content: center;
+
+        &__button {
+            margin: 24px;
+            padding: 8px;
+            border: none;
+            border-bottom: 4px solid variaveis.$colorLine;
+            background-color: transparent;
+            border-radius: 20%;
+            width: 12vw;
+            color: variaveis.$colorLine;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease;
+
+            &:hover {
+                background: linear-gradient(to bottom, variaveis.$backgroundColorTercery 0%, black 100%);
+                letter-spacing: 1px;
+                color: variaveis.$backgroundColor;
+                border-top: variaveis.$backgroundColorTercery;
+            }
+            
+            &.hero__content__tab--is-active {
+                margin: 24px;
+                padding: 8px;
+                border: none;
+                border-bottom: 4px solid variaveis.$colorLine;
+                background-color: transparent;
+                border-radius: 20%;
+                width: 12vw;
+                color: variaveis.$colorLine;
+                font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease;
+            }
+        }
+    }
+
+    .title--big {
+        font-size: 4rem;
+        font-family: variaveis.$fontPrincipal;
+        margin-bottom: 38px;
+        transition: .8s ease;
+        border: none;
+        color: variaveis.$colorLine;
+        background: linear-gradient(to top, black 0%, variaveis.$colorBottons 100%);
+        cursor: pointer;
+
+        &:hover {
+            letter-spacing: 6px;
+            margin: 0;
+            color: variaveis.$colorTitle;
+            border-top: 6px solid variaveis.$backgroundColorTercery;
+        }
+    }
+
+    .line-pand-hero {
+        width: 100vw;
+        height: 4px;
+        margin: 2.5vh;
+        background-color: variaveis.$colorLine;
+        border-radius: 50%;
+    }
+
+    &__content {
+        &__tab {
+            display: none; // Abas inativas ficam escondidas
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+
+            &.hero__content__tab--is-active { // Aba ativa aparece
+                display: grid;
+            }
+
+            &__list {
+                img {
+                    cursor: pointer;
+                    border-radius: 50%;
+                    width: 400px;
+                    height: 400px;
+                    margin: 0;
+                    border: 8px solid variaveis.$backgroundColor;
+                    transition: .5s ease;
+
+                    &:hover {
+                        border: 8px solid variaveis.$backgroundColorTercery;
+                        border-radius: 20%;
+                    }
+                }
+
+                &.hero__content__tab--is-active { // <li> ativo ganha destaque
+                    img {
+                        &:hover {
+                            border: 8px solid variaveis.$backgroundColorTercery;
+                            border-radius: 20%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

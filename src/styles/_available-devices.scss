@@ -1,0 +1,108 @@
+@use 'variaveis';
+
+.foot-container {
+    .available-devices {
+        background: linear-gradient(to bottom, rgb(0, 0, 0) 10%, variaveis.$backgroundColorTercery 100%);
+        padding-bottom: 50px;
+        
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 24px;
+            text-align: center;
+    
+            .img-available {
+                max-width: 100%;
+                cursor: pointer;
+                border: 5px; // Incompleto, sugiro "border: 5px solid variaveis.$colorLine" ou similar
+                transition: .5s ease;
+
+                &:hover {
+                    border: 5px solid variaveis.$backgroundColor;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    
+    .title {
+        padding-bottom: 24px;
+        color: variaveis.$backgroundColorTercery;
+        font-size: 3rem;
+        text-align: center;
+        cursor: pointer;
+        transition: .5s ease;
+
+        &:hover {
+            color: variaveis.$colorLogo;
+        }
+    }
+}
+
+.line-pand-available {
+    width: 100vw;
+    height: 20px;
+    border-radius: 50%;
+    background-color: variaveis.$backgroundColorTercery;
+    background: linear-gradient(to bottom, variaveis.$backgroundColorSecundary 0%, variaveis.$backgroundColorTercery 100%);
+    margin-bottom: 20px;
+}
+
+// Media Queries para telas menores
+@media screen and (max-width: 480px) {
+    .foot-container {
+        .available-devices {
+            padding-bottom: 30px; // Menos padding
+            
+            &__list {
+                grid-template-columns: 1fr; // Uma coluna em mobile
+                gap: 16px; // Menos espaçamento
+                
+                .img-available {
+                    max-width: 80%; // Reduz tamanho relativo
+                    margin: 0 auto; // Centraliza
+                }
+            }
+        }
+        
+        .title {
+            font-size: 2rem; // Título menor
+            padding-bottom: 16px;
+        }
+    }
+    
+    .line-pand-available {
+        height: 10px; // Linha mais fina
+        margin-bottom: 12px;
+        width: 100%; // Ajusta ao container
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .foot-container {
+        .available-devices {
+            padding-bottom: 40px; // Padding intermediário
+            
+            &__list {
+                grid-template-columns: 1fr 1fr; // Duas colunas em tablet
+                gap: 20px; // Espaçamento ajustado
+                
+                .img-available {
+                    max-width: 90%; // Tamanho relativo médio
+                    margin: 0 auto;
+                }
+            }
+        }
+        
+        .title {
+            font-size: 2.5rem; // Título médio
+            padding-bottom: 20px;
+        }
+    }
+    
+    .line-pand-available {
+        height: 15px; // Altura intermediária
+        margin-bottom: 16px;
+        width: 100%; // Ajusta ao container
+    }
+}

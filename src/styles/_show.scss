@@ -1,0 +1,152 @@
+@use 'variaveis';
+
+.show {
+    // Backgrounds
+    background-image: url('/src/assets/images/dreamLogo.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    text-align: center;
+    margin-top: 48px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__ul {
+        display: grid;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: 1fr 1fr; // Nota: Isso não funciona com Flex, talvez devesse ser grid?
+        gap: 24px;
+        
+        &__li {
+            display: grid;
+            align-items: center;
+            text-align: center;
+            
+            button {
+                padding: 16px 16px 16px;
+                font-family: variaveis.$fontSecundary;
+                font-style: bold;
+                border-radius: 8px;
+                border: 1px solid variaveis.$colorLine;
+                background-color: variaveis.$colorBottons;
+                transition: transform .5s ease;
+                cursor: pointer;
+                
+                &:hover {
+                    background-color: variaveis.$backgroundColorSecundary;
+                    color: variaveis.$colorLine;
+                    background: linear-gradient(to top, variaveis.$fontSecundary 10%, variaveis.$backgroundColorSecundary 100%);
+                    transform: scale(1.02);
+                }
+            }
+            .premium-panda {
+                color: variaveis.$backgroundColor;
+                transition: transform .5s ease;
+                
+                &:hover {
+                    background-color: variaveis.$backgroundColorSecundary;
+                    background: linear-gradient(to top, white 0%, black 100%);
+                    transform: scale(1.02);
+                }
+            }
+        }
+    }
+}
+
+.image_plan {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin: 0;
+}
+
+.line-pand {
+    width: 100vw;
+    height: 4px;
+    background-color: variaveis.$colorLine;
+    border-radius: 50%;
+    border: none;
+    margin: 50px;
+    margin-left: 0;
+}
+
+// Media Queries para telas menores
+@media screen and (max-width: 480px) {
+    .show {
+        margin-top: 20px; // Reduz margem superior em mobile
+        min-height: 80vh; // Ajusta altura mínima para caber melhor
+    }
+    
+    .content {
+        flex-direction: column; // Empilha os itens verticalmente
+        padding: 10px;
+        
+        &__ul {
+            flex-direction: column; // Lista vertical em mobile
+            gap: 16px; // Reduz espaçamento
+            
+            &__li {
+                button {
+                    padding: 12px; // Menos padding nos botões
+                    font-size: 14px; // Fonte menor
+                }
+                .premium-panda {
+                    font-size: 14px; // Ajuste de fonte
+                }
+            }
+        }
+    }
+    
+    .image_plan {
+        width: 150px; // Reduz tamanho da imagem
+        height: 150px;
+    }
+    
+    .line-pand {
+        margin: 20px 0; // Reduz margens
+        width: 100%; // Ajusta para largura do container
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .show {
+        margin-top: 30px; // Margem intermediária
+    }
+    
+    .content {
+        padding: 15px;
+        
+        &__ul {
+            flex-wrap: wrap; // Permite que itens quebrem linha
+            gap: 20px; // Espaçamento intermediário
+            
+            &__li {
+                button {
+                    padding: 14px; // Padding ajustado
+                    font-size: 16px; // Fonte intermediária
+                }
+                .premium-panda {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    
+    .image_plan {
+        width: 200px; // Tamanho médio
+        height: 200px;
+    }
+    
+    .line-pand {
+        margin: 30px 0; // Margem ajustada
+        width: 100%;
+    }
+}
