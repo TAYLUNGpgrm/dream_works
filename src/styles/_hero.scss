@@ -34,7 +34,7 @@
                 color: variaveis.$backgroundColor;
                 border-top: variaveis.$backgroundColorTercery;
             }
-            
+
             &.hero__content__tab--is-active {
                 margin: 24px;
                 padding: 8px;
@@ -45,9 +45,9 @@
                 width: 12vw;
                 color: variaveis.$colorLine;
                 font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: .5s ease;
+                font-weight: bold;
+                cursor: pointer;
+                transition: .5s ease;
             }
         }
     }
@@ -84,7 +84,8 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 24px;
 
-            &.hero__content__tab--is-active { // Aba ativa aparece
+            &.hero__content__tab--is-active {
+                // Aba ativa aparece
                 display: grid;
             }
 
@@ -104,7 +105,9 @@
                     }
                 }
 
-                &.hero__content__tab--is-active { // <li> ativo ganha destaque
+                &.hero__content__tab--is-active {
+
+                    // <li> ativo ganha destaque
                     img {
                         &:hover {
                             border: 8px solid variaveis.$backgroundColorTercery;
